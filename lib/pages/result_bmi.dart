@@ -16,9 +16,7 @@ class ResultBMI extends StatelessWidget {
         child: Column(
           children: [
             const Text("Your BMI result is:"),
-            Text(
-              Provider.of<BMIController>(context, listen: false).bmi
-            ),
+            Text(Provider.of<BMIController>(context, listen: false).bmi),
           ],
         ),
       ),

@@ -13,9 +13,7 @@ class InsertData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Personal Information"),
-      ),
+      appBar: AppBar(title: const Text("Personal Information")),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
@@ -33,11 +31,11 @@ class InsertData extends StatelessWidget {
                   return null;
                 },
                 decoration: const InputDecoration(
-                    labelText: "Weight", border: OutlineInputBorder()),
+                  labelText: "Weight",
+                  border: OutlineInputBorder(),
+                ),
               ),
-              const SizedBox(
-                height: 6,
-              ),
+              const SizedBox(height: 6),
               TextFormField(
                 controller: _heightController,
                 keyboardType: TextInputType.number,
@@ -49,23 +47,27 @@ class InsertData extends StatelessWidget {
                   return null;
                 },
                 decoration: const InputDecoration(
-                    labelText: "Height", border: OutlineInputBorder()),
+                  labelText: "Height",
+                  border: OutlineInputBorder(),
+                ),
               ),
-              const SizedBox(
-                height: 24,
-              ),
+              const SizedBox(height: 24),
               ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      Provider.of<BMIController>(context, listen: false)
-                          .calculateBMI(
-                              weight: double.parse(_weightController.text),
-                              height: double.parse(_heightController.text));
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    Provider.of<BMIController>(
+                      context,
+                      listen: false,
+                    ).calculateBMI(
+                      weight: double.parse(_weightController.text),
+                      height: double.parse(_heightController.text),
+                    );
 
-                      Navigator.pushNamed(context, '/result');
-                    }
-                  },
-                  child: const Text("Calculate"))
+                    Navigator.pushNamed(context, '/result');
+                  }
+                },
+                child: const Text("Calculate"),
+              ),
             ],
           ),
         ),
