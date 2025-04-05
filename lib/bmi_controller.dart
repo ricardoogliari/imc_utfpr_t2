@@ -8,8 +8,6 @@ class BMIController extends ChangeNotifier {
   void calculateBMI({required double weight, required double height}) {
     final bmi = weight / (height * height);
 
-    print('passou aqui');
-
     if (bmi < 18.5) {
       _bmi = results[1];
     } else if (bmi < 24.9) {
