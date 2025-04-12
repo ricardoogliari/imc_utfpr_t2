@@ -66,6 +66,24 @@ class InsertData extends StatelessWidget {
                     Navigator.pushNamed(context, '/result');
                   }
                 },
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.blue, // Cor do texto
+                  padding: EdgeInsets.symmetric(
+                    vertical: 15,
+                    horizontal: 30,
+                  ), // Padding maior
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(
+                      12,
+                    ), // Bordas arredondadas
+                  ),
+                  elevation: 5, // Sombra
+                  textStyle: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ), // Tamanho e peso do texto
+                ),
                 child: const Text("Calculate"),
               ),
             ],
