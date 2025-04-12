@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:myapp/bmi_controller.dart';
 import 'package:provider/provider.dart';
 
@@ -23,12 +24,15 @@ class InsertData extends StatelessWidget {
               TextFormField(
                 controller: _weightController,
                 keyboardType: TextInputType.number,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Please, enter the weight!";
-                  }
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')),
+                ],
 
-                  return null;
+                validator: (value) {
+                  return Provider.of<BMIController>(
+                    context,
+                    listen: false,
+                  ).validateWeight(value);
                 },
                 decoration: const InputDecoration(
                   labelText: "Weight",
@@ -39,12 +43,14 @@ class InsertData extends StatelessWidget {
               TextFormField(
                 controller: _heightController,
                 keyboardType: TextInputType.number,
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')),
+                ],
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Please, enter the height!";
-                  }
-
-                  return null;
+                  return Provider.of<BMIController>(
+                    context,
+                    listen: false,
+                  ).validateHeight(value);
                 },
                 decoration: const InputDecoration(
                   labelText: "Height",
