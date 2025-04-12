@@ -45,17 +45,29 @@ void main() {
     });
   });
 
-  group('Test input validation logic', (){
+  group('Test input validation logic', () {
     test("weight should be greater than zero", () {
-      expect(controller.validateWeight("0"), "Weight must be greater than zero!");
-      expect(controller.validateWeight("-1"), "Weight must be greater than zero!");
+      expect(
+        controller.validateWeight("0"),
+        "Weight must be greater than zero!",
+      );
+      expect(
+        controller.validateWeight("-1"),
+        "Weight must be greater than zero!",
+      );
       expect(controller.validateWeight("a"), "Please, enter a valid weight!");
       expect(controller.validateWeight(""), "Please, enter a valid weight!");
     });
 
     test("height should be greater than zero", () {
-      expect(controller.validateHeight("0"), "Height must be greater than zero!");
-      expect(controller.validateHeight("-1"), "Height must be greater than zero!");
+      expect(
+        controller.validateHeight("0"),
+        "Height must be greater than zero!",
+      );
+      expect(
+        controller.validateHeight("-1"),
+        "Height must be greater than zero!",
+      );
       expect(controller.validateHeight("a"), "Please, enter a valid height!");
       expect(controller.validateHeight(""), "Please, enter a valid height!");
     });

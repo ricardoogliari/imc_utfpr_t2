@@ -25,7 +25,7 @@ class InsertData extends StatelessWidget {
                 controller: _weightController,
                 keyboardType: TextInputType.number,
                 inputFormatters: <TextInputFormatter>[
-                    FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')),
+                  FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')),
                 ],
 
                 validator: (value) {
